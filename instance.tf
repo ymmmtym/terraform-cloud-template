@@ -1,5 +1,5 @@
 resource "google_compute_instance" "default" {
-  name         = "centos7"
+  name         = "centos01"
   machine_type = "f1-micro"
   zone         = "us-west1-b"
 
@@ -25,7 +25,7 @@ resource "google_compute_instance" "default" {
     foo = "bar"
   }
 
-  metadata_startup_script = "echo hi > /test.txt"
+  metadata_startup_script = "date > /tmp/test.txt"
 
   service_account {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
