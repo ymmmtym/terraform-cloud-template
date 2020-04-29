@@ -1,33 +1,33 @@
-resource "google_compute_instance" "default" {
-  name         = "centos01"
-  machine_type = "f1-micro"
-  zone         = "us-west1-b"
+# resource "google_compute_instance" "default" {
+#   name         = "centos01"
+#   machine_type = "f1-micro"
+#   zone         = "us-west1-b"
 
-  tags = ["http-server", "https-server"]
+#   tags = ["http-server", "https-server"]
 
-  boot_disk {
-    initialize_params {
-      image = "centos-cloud/centos-7"
-      size  = "30"
-      type  = "pd-standard"
-    }
-  }
+#   boot_disk {
+#     initialize_params {
+#       image = "centos-cloud/centos-7"
+#       size  = "30"
+#       type  = "pd-standard"
+#     }
+#   }
 
-  network_interface {
-    network = "default"
+#   network_interface {
+#     network = "default"
 
-    access_config {
-      nat_ip = "${google_compute_address.default.address}"
-    }
-  }
+#     access_config {
+#       nat_ip = "${google_compute_address.default.address}"
+#     }
+#   }
 
-  metadata = {
-    foo = "bar"
-  }
+#   metadata = {
+#     foo = "bar"
+#   }
 
-  metadata_startup_script = "date > /tmp/test.txt"
+#   metadata_startup_script = "date > /tmp/test.txt"
 
-  service_account {
-    scopes = ["userinfo-email", "compute-ro", "storage-ro"]
-  }
-}
+#   service_account {
+#     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
+#   }
+# }
