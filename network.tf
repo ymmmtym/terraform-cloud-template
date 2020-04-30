@@ -25,5 +25,5 @@ resource "google_compute_firewall" "allow-https" {
 }
 
 output "global_ip" {
-  value = "${google_compute_address.default.address}"
+  value = google_compute_address.default.address
 }
