@@ -17,7 +17,7 @@ resource "google_compute_instance" "default" {
     network = "default"
 
     access_config {
-      nat_ip = "${google_compute_address.default.address}"
+      nat_ip = google_compute_address.default.address
     }
   }
 
@@ -25,7 +25,7 @@ resource "google_compute_instance" "default" {
     foo = "bar"
   }
 
-  metadata_startup_script = "date > /tmp/test.txt"
+  # metadata_startup_script = "date > /tmp/test.txt"
 
   service_account {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
