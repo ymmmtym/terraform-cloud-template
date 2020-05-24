@@ -25,7 +25,14 @@ resource "google_compute_instance" "default" {
     foo = "bar"
   }
 
-  # metadata_startup_script = "date > /tmp/test.txt"
+  metadata_startup_script = <<EOT
+    sudo dd if=/dev/zero of=/swapfile bs=1M count=1024
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+    sudo sed -i '$ a /swapfile                                 swap                    swap    defaults        0 0' /etc/fstab
+    EOT
+
 
   service_account {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
