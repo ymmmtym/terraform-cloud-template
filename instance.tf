@@ -7,7 +7,7 @@ resource "google_compute_instance" "default" {
 
   boot_disk {
     initialize_params {
-      image = "centos-cloud/centos-8"
+      image = "centos-cloud/centos-7"
       size  = "30"
       type  = "pd-standard"
     }
