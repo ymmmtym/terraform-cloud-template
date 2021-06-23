@@ -3,7 +3,7 @@ resource "google_compute_instance" "default" {
   machine_type = "f1-micro"
   zone         = "us-west1-b"
 
-  tags = ["http-server", "https-server", "upgrade-v0-14"]
+  tags = ["http-server", "https-server", "upgrade-v0-15-retry"]
 
   boot_disk {
     initialize_params {
