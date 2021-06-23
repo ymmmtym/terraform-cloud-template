@@ -10,7 +10,7 @@ resource "google_compute_firewall" "allow-http" {
     ports    = ["80"]
   }
   source_ranges = ["0.0.0.0/0"]
-  target_tags = ["http-server"]
+  target_tags   = ["http-server"]
 }
 
 resource "google_compute_firewall" "allow-https" {
@@ -21,7 +21,7 @@ resource "google_compute_firewall" "allow-https" {
     ports    = ["443"]
   }
   source_ranges = ["0.0.0.0/0"]
-  target_tags = ["https-server"]
+  target_tags   = ["https-server"]
 }
 
 output "global_ip" {
