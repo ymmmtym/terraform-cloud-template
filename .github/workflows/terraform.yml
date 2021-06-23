@@ -7,7 +7,7 @@ on:
       - main
 jobs:
   terraform:
-    name: 'Dev Networking Terraform'
+    name: Terraform
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
