@@ -1,6 +1,6 @@
 resource "google_compute_instance" "default" {
   name         = "centos01"
-  machine_type = "f1-micro"
+  machine_type = "e2-micro"
   zone         = "us-west1-b"
 
   tags = ["http-server", "https-server"]
