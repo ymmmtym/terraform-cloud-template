@@ -1,7 +1,3 @@
-resource "google_compute_address" "default" {
-  name = "global-ip"
-}
-
 resource "google_compute_firewall" "allow-http" {
   name    = "default-allow-http"
   network = "default"
@@ -22,8 +18,4 @@ resource "google_compute_firewall" "allow-https" {
   }
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["https-server"]
-}
-
-output "global_ip" {
-  value = google_compute_address.default.address
 }
