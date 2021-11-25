@@ -1,3 +1,7 @@
+resource "google_compute_address" "default" {
+  name = "global-ip"
+}
+
 resource "google_compute_instance" "default" {
   name         = "centos01"
   machine_type = "e2-micro"
@@ -37,4 +41,9 @@ resource "google_compute_instance" "default" {
   service_account {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
   }
+}
+
+
+output "global_ip" {
+  value = google_compute_address.default.address
 }
