@@ -2,3 +2,5 @@
 /*.tfstate
 /*.json
 /.terraform/
+.terraformrc
+
