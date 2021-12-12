@@ -5,6 +5,14 @@ on:
   pull_request:
     branches:
       - main
+      - main
+  workflow_dispatch:
+    inputs:
+      args:
+        description: 'Args to terraform (default: show)'
+        required: true
+        default: 'show'
+
 jobs:
   terraform:
     name: Terraform
@@ -24,8 +32,11 @@ jobs:
       run: terraform init
     - name: Terraform Plan
       id: plan
-      if: github.event_name == 'pull_request'
       run: terraform plan
+      if: ${{ github.event_name == 'pull_request' }}
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
+      if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+    - name: Terraform ${{ github.event.inputs.args }}
+      run: terraform ${{ github.event.inputs.args }}
+      if: ${{ github.event_name == 'workflow_dispatch' }}
