@@ -1,3 +1,6 @@
+*.swp
+
+# terraform
 /*.tfvars
 /*.tfstate
 /*.json

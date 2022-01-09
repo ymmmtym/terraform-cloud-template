@@ -10,7 +10,7 @@ resource "google_storage_bucket" "yumenomatayume_default_bucket" {
 
   lifecycle_rule {
     condition {
-      age = 5
+      num_newer_versions = 5
     }
     action {
       type = "Delete"
