@@ -19,3 +19,14 @@ resource "google_compute_firewall" "allow-https" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["https-server"]
 }
+
+resource "google_compute_firewall" "allow-dns" {
+  name    = "default-allow-dns"
+  network = "default"
+  allow {
+    protocol = "all"
+    ports    = ["53"]
+  }
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["dns-server"]
+}
