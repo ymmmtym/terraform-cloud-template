@@ -26,7 +26,7 @@ resource "google_compute_instance" "default" {
   }
 
   metadata = {
-    foo = "bar"
+    managed-by = "terraform"
   }
 
   metadata_startup_script = <<EOT
