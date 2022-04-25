@@ -24,7 +24,11 @@ resource "google_compute_firewall" "allow-dns" {
   name    = "default-allow-dns"
   network = "default"
   allow {
-    protocol = "all"
+    protocol = "tcp"
+    ports    = ["53"]
+  }
+  allow {
+    protocol = "udp"
     ports    = ["53"]
   }
   source_ranges = ["0.0.0.0/0"]
