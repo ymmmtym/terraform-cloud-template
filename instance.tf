@@ -7,7 +7,7 @@ resource "google_compute_instance" "default" {
   machine_type = "e2-micro"
   zone         = "us-west1-b"
 
-  tags = ["http-server", "https-server"]
+  tags = ["http-server", "https-server", "dns-server"]
 
   boot_disk {
     initialize_params {
@@ -26,7 +26,7 @@ resource "google_compute_instance" "default" {
   }
 
   metadata = {
-    foo = "bar"
+    managed-by = "terraform"
   }
 
   metadata_startup_script = <<EOT
