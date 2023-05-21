@@ -5,5 +5,5 @@ repos:
   - id: terraform_fmt
   - id: terraform_providers_lock
   - id: terraform_tflint
-  # - id: terraform_tfsec
+  - id: terraform_tfsec
   - id: terraform_validate

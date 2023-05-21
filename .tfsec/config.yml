@@ -1,0 +1,11 @@
+---
+exclude:
+  - google-compute-no-default-service-account
+  - google-compute-enable-shielded-vm-im
+  - google-compute-enable-shielded-vm-vtpm 
+  - google-compute-no-project-wide-ssh-keys 
+  - google-compute-no-public-ingress
+  - google-compute-no-public-ip
+  - google-compute-vm-disk-encryption-customer-key 
+  - google-storage-bucket-encryption-customer-key 
+  - google-storage-enable-ubla
